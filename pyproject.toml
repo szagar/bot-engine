@@ -1,0 +1,55 @@
+[project]
+name = "bot-engine"
+version = "0.1.0"
+description = "Host-agnostic trading-bot runtime — bot base class, YAML registry, executor lifecycle, and cron scheduler. The host project supplies the trading context."
+readme = "README.md"
+authors = [
+    { name = "Stephen Zagar", email = "szagar@gmail.com" }
+]
+requires-python = ">=3.11"
+license = "MIT"
+keywords = ["trading", "bots", "strategy", "scheduler", "runtime"]
+classifiers = [
+    "Development Status :: 2 - Pre-Alpha",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Typing :: Typed",
+]
+dependencies = [
+    "pyyaml>=6.0",
+]
+
+[project.optional-dependencies]
+# BotScheduler — cron-driven bot fires via APScheduler.
+scheduler = [
+    "apscheduler>=3.10,<4",
+]
+
+[project.urls]
+Homepage = "https://github.com/szagar/bot-engine"
+Repository = "https://github.com/szagar/bot-engine"
+Issues = "https://github.com/szagar/bot-engine/issues"
+
+[dependency-groups]
+dev = [
+    "pytest>=8.0",
+    "pytest-asyncio>=0.23",
+    "apscheduler>=3.10,<4",
+    "ruff>=0.4",
+]
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/bot_engine"]
+
+[tool.pytest.ini_options]
+asyncio_mode = "auto"
+testpaths = ["tests"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py311"

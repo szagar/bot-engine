@@ -1,0 +1,18 @@
+# Example registry — see quickstart.py for the bot class and context.
+
+spx_dip_buyer:
+  class_path: "quickstart.PriceThresholdBot"
+  schedule: "0 14 * * mon-fri"   # 2:00 PM in the scheduler's timezone
+  enabled: true
+  parameters:
+    underlying: "SPX"
+    buy_below: 6900.0
+    qty: 2
+
+rut_dip_buyer:
+  class_path: "quickstart.PriceThresholdBot"
+  schedule: ""                    # trigger-only
+  enabled: true
+  parameters:
+    underlying: "RUT"
+    buy_below: 2000.0             # won't fire at the example's fake price
