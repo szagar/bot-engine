@@ -26,6 +26,13 @@ trading project can import it to define and run its own bots.
 └────────────────────────────────────────────────────────────┘
 ```
 
+## Documentation
+
+- [`docs/integration-guide.md`](docs/integration-guide.md) — step-by-step wiring into a trading platform, with a full host-service skeleton
+- [`docs/ports-reference.md`](docs/ports-reference.md) — every port's contract plus production implementations (Postgres/Redis state store, enable gate, run-recorder DDL, trading calendar)
+- [`docs/integration-checklist.md`](docs/integration-checklist.md) — go-live checklist
+- [`docs/diagrams/`](docs/diagrams/) — Excalidraw architecture, run-lifecycle, and signal-flow diagrams
+
 ## Install
 
 ```toml
